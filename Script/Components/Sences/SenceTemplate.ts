@@ -1,5 +1,5 @@
-import { Background } from "../Background";
-import { Sence } from "../Sence";
+import { Background } from "../Entitys/Background";
+import { Sence } from "../Entitys/Sence";
 
 export class SenceTemplate implements Sence {
   background: Background;

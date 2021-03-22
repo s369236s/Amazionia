@@ -1,17 +1,17 @@
-import { Background } from "../Background";
-import { Sence } from "../Sence";
-import { MapIcons } from "../MapIcons";
-import { Entity } from "../Entity";
-import { Point2D } from "../Point";
-import { MapState } from "../MapState";
-import Image from "../Image";
+import { Background } from "../Entitys/Background";
+import { Sence } from "../Entitys/Sence";
+import { MapIcons } from "../Entitys/MapIcons";
+import { Entity } from "../Entitys/Entity";
+import { Point2D } from "../Type/Point";
+import { MapState } from "../State/MapState";
+import Image from "../Entitys/Image";
 
 export class Map implements Sence {
   background: Background;
   private mapIcons: MapIcons;
   private redDot: RedDot;
   constructor() {
-    this.background = new Background(0, 0, "./Media/Image/Backgrounds/Map.png");
+    this.background = new Background(0, 0, "./Media/Image/Backgrounds/map.png");
     this.mapIcons = new MapIcons();
     this.redDot = new RedDot(100, 100);
   }
@@ -25,9 +25,10 @@ export class Map implements Sence {
 class RedDot implements Entity {
   pos: Point2D;
   image: Image;
+  imageURL: string = "./Media/Image/UI/red-dot.png";
   constructor(x: number, y: number) {
     this.pos = [x, y];
-    this.image = new Image("./Media/Image/UI/red-dot.png");
+    this.image = new Image(this.imageURL);
   }
   render(ctx: CanvasRenderingContext2D): void {
     ctx.drawImage(

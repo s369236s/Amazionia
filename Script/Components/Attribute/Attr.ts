@@ -1,7 +1,7 @@
-import { Entity } from "./Entity";
-import { Point2D } from "./Point";
-import { Controller } from "../Controllers/Controller";
-import Image from "./Image";
+import { Entity } from "../Entitys/Entity";
+import { Point2D } from "../Type/Point";
+import { Controller } from "../../Controllers/Controller";
+import Image from "../Entitys/Image";
 export class Attr implements Entity {
   pos: Point2D;
   attrValue: number;

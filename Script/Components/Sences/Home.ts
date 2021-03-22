@@ -1,6 +1,8 @@
-import { Background } from "../Background";
-import { Sence } from "../Sence";
-import Object from "../SenceObject";
+import { Background } from "../Entitys/Background";
+import { Sence } from "../Entitys/Sence";
+import Object from "../Entitys/SenceObject";
+import { PanelState } from "../State/PanelState";
+import { SenceState } from "../State/SenceState";
 
 export class Home implements Sence {
   background: Background;
@@ -18,15 +20,29 @@ export class Home implements Sence {
       80,
       465,
       "./Media/Image/SenceObjects/tent.png",
-      true
+      true,
+      undefined,
+      true,
+      PanelState.tent
     );
     this.fire = new Object(
       190,
       540,
       "./Media/Image/SenceObjects/fire.png",
-      true
+      true,
+      undefined,
+      true,
+      PanelState.fire
     );
-    this.bag = new Object(350, 445, "./Media/Image/SenceObjects/bag.png", true);
+    this.bag = new Object(
+      350,
+      445,
+      "./Media/Image/SenceObjects/bag.png",
+      true,
+      undefined,
+      true,
+      PanelState.bag
+    );
     this.leaveArrow = new Object(
       70,
       220,
@@ -36,7 +52,7 @@ export class Home implements Sence {
       undefined,
       undefined,
       true,
-      2
+      SenceState.map
     );
   }
   render(ctx: CanvasRenderingContext2D): void {

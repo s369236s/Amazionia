@@ -1,4 +1,4 @@
-import { Point2D } from "./Point";
+import { Point2D } from "../Type/Point";
 import Image from "./Image";
 
 export class Background {

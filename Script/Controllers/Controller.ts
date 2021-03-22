@@ -1,4 +1,4 @@
-import { Point2D } from "../Components/Point";
+import { Point2D } from "../Components/Type/Point";
 
 export class Controller {
   static clickPos: Point2D;
@@ -13,7 +13,7 @@ export class Controller {
       Controller.clickPos[0] = e.clientX - canvas.getBoundingClientRect().left;
       Controller.clickPos[1] = e.clientY - canvas.getBoundingClientRect().top;
       const [x, y] = Controller.clickPos;
-      console.log(Math.floor(x), Math.floor(y));
+      console.log(`${Math.floor(x)},${Math.floor(y)}`);
     });
   }
   mouseoverListener(canvas: HTMLCanvasElement) {

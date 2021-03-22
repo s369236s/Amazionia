@@ -1,4 +1,4 @@
-import { Sences } from "./Sences";
+import { Sences } from "../Sences/Sences";
 export class Canvas {
   private Sences: Sences;
   constructor() {

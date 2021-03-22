@@ -1,6 +1,6 @@
-import { Background } from "../Background";
-import { Sence } from "../Sence";
-import Object from "../SenceObject";
+import { Background } from "../Entitys/Background";
+import { Sence } from "../Entitys/Sence";
+import Object from "../Entitys/SenceObject";
 export class River implements Sence {
   background: Background;
   leaveArrow: Object;

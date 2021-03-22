@@ -1,3 +1,4 @@
+import { SenceState } from "../State/SenceState";
 import { MapIcon } from "./MapIcon";
 
 export class MapIcons {
@@ -8,39 +9,39 @@ export class MapIcons {
   waterfall: MapIcon;
   jungle: MapIcon;
   constructor() {
-    this._menu = new MapIcon(0, 0, "");
+    this._menu = new MapIcon([0, 0], "", undefined, undefined, undefined, "");
     this.home = new MapIcon(
-      172,
-      438,
+      [172, 438],
       "./Media/Image/MapIcon/home.png",
       true,
       true,
-      1
+      SenceState.home,
+      "Home"
     );
-    this._map = new MapIcon(0, 0, "");
+    this._map = new MapIcon([0, 0], "");
     this.river = new MapIcon(
-      128,
-      553,
+      [128, 553],
       "./Media/Image/MapIcon/river.png",
       true,
       true,
-      3
+      SenceState.river,
+      "River"
     );
     this.jungle = new MapIcon(
-      102,
-      245,
+      [102, 245],
       "./Media/Image/MapIcon/jungle.png",
       true,
       true,
-      4
+      SenceState.jungle,
+      "Jungle"
     );
     this.waterfall = new MapIcon(
-      326,
-      162,
+      [322, 194],
       "./Media/Image/MapIcon/waterfall.png",
       true,
       true,
-      5
+      SenceState.waterfall,
+      "Waterfall"
     );
   }
   render(ctx: CanvasRenderingContext2D) {

@@ -1,7 +1,7 @@
-import { Background } from "../Background";
-import { UI } from "../UI";
-import { Sence } from "../Sence";
-import { CanvasDetail } from "../Canvas";
+import { Background } from "../Entitys/Background";
+import { UI } from "../Entitys/UI";
+import { Sence } from "../Entitys/Sence";
+import { CanvasDetail } from "../Entitys/Canvas";
 
 export class Menu implements Sence {
   background: Background;

@@ -1,16 +1,23 @@
-import { Menu } from "./Sences/Menu";
-import { Attrs } from "./Attrs";
-import { Timer } from "./Time";
-import { Home } from "./Sences/Home";
-import { Map } from "./Sences/Map";
-import { SenceState } from "./SenceState";
-import { Waterfall } from "./Sences/Waterfall";
-import { Jungle } from "./Sences/Jungle";
-import { River } from "./Sences/River";
+import { Menu } from "./Menu";
+import { Attrs } from "../Attribute/Attrs";
+import { Timer } from "../Entitys/Time";
+import { Guide } from "../Entitys/Guide";
+import { Home } from "./Home";
+import { Map } from "./Map";
+import { SenceState } from "../State/SenceState";
+import { Waterfall } from "./Waterfall";
+import { Jungle } from "./Jungle";
+import { River } from "./River";
+import { Panels } from "../Entitys/Panels";
+import { Items } from "../Entitys/Items";
+import Object from "../Entitys/SenceObject";
 
 export class Sences {
   private attrs: Attrs;
   private timer: Timer;
+  private guide: Object;
+  private items: Items;
+  private panels: Panels;
   private menu: Menu;
   private home: Home;
   private map: Map;
@@ -20,6 +27,9 @@ export class Sences {
   constructor() {
     this.attrs = new Attrs();
     this.timer = new Timer();
+    this.panels = new Panels();
+    this.guide = new Guide();
+    this.items = new Items();
     this.menu = new Menu();
     this.home = new Home();
     this.map = new Map();
@@ -49,6 +59,8 @@ export class Sences {
     if (SenceState.current !== SenceState.menu) {
       this.attrs.render(ctx);
       this.timer.render(ctx);
+      this.guide.render(ctx);
+      this.panels.render(ctx);
     }
   }
 }
