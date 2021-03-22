@@ -37,7 +37,7 @@ export default class _Object implements Entity {
     this.pos = [x, y];
   }
   render(ctx: CanvasRenderingContext2D): void {
-    // ctx.save();
+    ctx.save();
     if (this.isOpenPanelable) {
     } else if (this.isChangeSenceAble) {
       if (
@@ -71,6 +71,6 @@ export default class _Object implements Entity {
       this.pos[0] - this.image.element.width / 2,
       this.pos[1] - this.image.element.height / 2
     );
-    // ctx.restore();
+    ctx.restore();
   }
 }

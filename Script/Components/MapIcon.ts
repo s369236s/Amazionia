@@ -29,7 +29,7 @@ export class MapIcon implements Entity {
     MapState.mapPos.push([x, y]);
   }
   render(ctx: CanvasRenderingContext2D): void {
-    // ctx.save();
+    ctx.save();
     if (this.isHoverAble) {
       if (
         Controller.mousemovePos[0] >
@@ -62,6 +62,6 @@ export class MapIcon implements Entity {
       this.pos[0] - this.image.element.width / 2 + 4,
       this.pos[1] - this.image.element.height / 2 + 2
     );
-    // ctx.restore();
+    ctx.restore();
   }
 }
