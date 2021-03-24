@@ -1,8 +1,8 @@
-import { Entity } from "./Entity";
+import { Entity } from "../Entitys/Entity";
 import { Point2D } from "../Type/Point";
 import { Controller } from "../../Controllers/Controller";
 import { SenceState } from "../State/SenceState";
-import Image from "./Image";
+import Image from "../Entitys/Image";
 
 export class UI implements Entity {
   pos: Point2D;

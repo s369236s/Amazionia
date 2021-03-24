@@ -1,8 +1,8 @@
 import { Background } from "../Entitys/Background";
 import { Sence } from "../Entitys/Sence";
-import Object from "../Entitys/SenceObject";
 import { PanelState } from "../State/PanelState";
 import { SenceState } from "../State/SenceState";
+import Object from "../Entitys/SenceObject";
 
 export class Home implements Sence {
   background: Background;

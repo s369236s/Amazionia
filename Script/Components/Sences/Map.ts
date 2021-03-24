@@ -1,6 +1,6 @@
 import { Background } from "../Entitys/Background";
 import { Sence } from "../Entitys/Sence";
-import { MapIcons } from "../Entitys/MapIcons";
+import { MapIcons } from "../Maps/MapIcons";
 import { Entity } from "../Entitys/Entity";
 import { Point2D } from "../Type/Point";
 import { MapState } from "../State/MapState";

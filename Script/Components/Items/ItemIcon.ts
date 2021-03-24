@@ -1,6 +1,6 @@
 import { Point2D } from "../Type/Point";
-import { Entity } from "./Entity";
-import Image from "./Image";
+import { Entity } from "../Entitys/Entity";
+import Image from "../Entitys/Image";
 
 export class ItemIcon implements Entity {
   pos: Point2D;

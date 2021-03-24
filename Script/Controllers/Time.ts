@@ -1,6 +1,6 @@
-import { Entity } from "./Entity";
-import { Point2D } from "../Type/Point";
-import Image from "./Image";
+import { Entity } from "../Components/Entitys/Entity";
+import { Point2D } from "../Components/Type/Point";
+import Image from "../Components/Entitys/Image";
 export class Time {
   static day: number = 0;
   static minute: number = 1430;

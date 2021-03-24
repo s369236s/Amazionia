@@ -1,10 +1,10 @@
-import { Entity } from "./Entity";
+import { Entity } from "../Entitys/Entity";
 import { Point2D } from "../Type/Point";
 import { Controller } from "../../Controllers/Controller";
 import { SenceState } from "../State/SenceState";
 import { MapState } from "../State/MapState";
-import Image from "./Image";
-import { Time } from "./Time";
+import Image from "../Entitys/Image";
+import { Time } from "../../Controllers/Time";
 
 export class MapIcon implements Entity {
   pos: Point2D;

@@ -63,10 +63,11 @@ export class Items {
         "My Passport"
       )
     );
+    this.Debug();
   }
   Debug() {
     const found = this.items.find((item) => item.name === "Passport");
-    console.log(this.items);
-    console.log(found);
+    console.table(this.items);
+    console.table(found);
   }
 }

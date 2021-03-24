@@ -1,6 +1,6 @@
 import { PanelState } from "../State/PanelState";
-import { GuidePanel } from "../Panels/GuidePanel";
-import { BagPanel } from "../Panels/BagPanel";
+import { GuidePanel } from "./GuidePanel";
+import { BagPanel } from "./BagPanel";
 export class Panels {
   private guide: GuidePanel;
   private bag: BagPanel;

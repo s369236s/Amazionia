@@ -1,6 +1,6 @@
 import { Menu } from "./Menu";
 import { Attrs } from "../Attribute/Attrs";
-import { Timer } from "../Entitys/Time";
+import { Timer } from "../../Controllers/Time";
 import { Guide } from "../Entitys/Guide";
 import { Home } from "./Home";
 import { Map } from "./Map";
@@ -8,8 +8,8 @@ import { SenceState } from "../State/SenceState";
 import { Waterfall } from "./Waterfall";
 import { Jungle } from "./Jungle";
 import { River } from "./River";
-import { Panels } from "../Entitys/Panels";
-import { Items } from "../Entitys/Items";
+import { Panels } from "../Panels/Panels";
+import { Items } from "../Items/Items";
 import Object from "../Entitys/SenceObject";
 
 export class Sences {

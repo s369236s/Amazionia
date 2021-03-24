@@ -1,5 +1,5 @@
 import { Panel } from "../Entitys/Panel";
-import { Panels } from "../Entitys/Panels";
+import { Panels } from "./Panels";
 
 export class GuidePanel extends Panel {
   constructor() {

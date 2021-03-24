@@ -1,5 +1,5 @@
 import { Background } from "../Entitys/Background";
-import { UI } from "../Entitys/UI";
+import { UI } from "../UI/UI";
 import { Sence } from "../Entitys/Sence";
 import { CanvasDetail } from "../Entitys/Canvas";
 

@@ -10,8 +10,10 @@ export class Controller {
   }
   clickListener(canvas: HTMLCanvasElement) {
     canvas.addEventListener("click", (e) => {
-      Controller.clickPos[0] = e.clientX - canvas.getBoundingClientRect().left;
-      Controller.clickPos[1] = e.clientY - canvas.getBoundingClientRect().top;
+      Controller.clickPos = [
+        e.clientX - canvas.getBoundingClientRect().left,
+        e.clientY - canvas.getBoundingClientRect().top,
+      ];
       const [x, y] = Controller.clickPos;
       console.log(`${Math.floor(x)},${Math.floor(y)}`);
     });
