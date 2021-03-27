@@ -11,6 +11,7 @@ import { River } from "./River";
 import { Panels } from "../Panels/Panels";
 import { Items } from "../Items/Items";
 import Object from "../Entitys/SenceObject";
+import { ItemBoxs } from "../Items/ItemBoxs";
 
 export class Sences {
   private attrs: Attrs;
@@ -27,9 +28,9 @@ export class Sences {
   constructor() {
     this.attrs = new Attrs();
     this.timer = new Timer();
-    this.panels = new Panels();
     this.guide = new Guide();
     this.items = new Items();
+    this.panels = new Panels(this.items);
     this.menu = new Menu();
     this.home = new Home();
     this.map = new Map();

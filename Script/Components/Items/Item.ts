@@ -21,8 +21,4 @@ export class Item {
     this.imageURL = imageURL;
     this.ID = ID;
   }
-
-  render(_ctx: CanvasRenderingContext2D): void {}
 }
-
-export class Items {}

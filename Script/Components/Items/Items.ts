@@ -1,6 +1,6 @@
 import { Item } from "./Item";
-
-const ItemID = {
+import { ItemBox } from "./ItemBox";
+export const ItemID = {
   food: {
     banana: 1,
     coconut: 2,
@@ -59,11 +59,15 @@ export class Items {
       new Item(
         "Passport",
         "./Media/Image/Items/Passport.png",
-        ItemID.food.fish,
+        ItemID.tool.passport,
         "My Passport"
       )
     );
     this.Debug();
+  }
+  findOne(itemID: number) {
+    const found = this.items.find((item) => item.ID === itemID) as Item;
+    return found;
   }
   Debug() {
     const found = this.items.find((item) => item.name === "Passport");
