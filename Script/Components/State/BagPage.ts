@@ -1,3 +1,3 @@
-export class ItemPage {
+export class BagPage {
   static current: number = 0;
 }

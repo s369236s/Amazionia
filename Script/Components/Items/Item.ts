@@ -6,6 +6,7 @@ export class Item {
   consumable: boolean;
   attrValue: ItemAttr;
   ID: number;
+  amount: number = 1;
   constructor(
     name: string,
     imageURL: string,

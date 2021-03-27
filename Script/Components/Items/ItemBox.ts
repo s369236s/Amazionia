@@ -18,5 +18,11 @@ export class ItemBox {
     ctx.fillRect(this.pos[0], this.pos[1], 50, 50);
     ctx.restore();
     ctx.drawImage(this.image.element, this.pos[0] + 5, this.pos[1] + 5, 40, 40);
+    ctx.fillStyle = "rgba(255,255, 255)";
+    ctx.fillText(
+      this.item.amount.toString(),
+      this.pos[0] + 45,
+      this.pos[1] + 47.5
+    );
   }
 }

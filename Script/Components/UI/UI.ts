@@ -61,6 +61,7 @@ export class UI implements Entity {
         Controller.clickPos[1] < this.pos[1] + this.image.element.height / 2
       ) {
         SenceState.current = this.gotoSence;
+        Controller.clickPos = [0, 0];
       }
     }
   }
