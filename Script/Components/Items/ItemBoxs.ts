@@ -1,41 +1,43 @@
 import { BagPage } from "../State/BagPage";
 import { ItemBox } from "./ItemBox";
 import { Items } from "./Items";
-import { ItemSystem, playerItems } from "./ItemSystem";
+import { ItemSystem, playerItems, refreshItemBoxs } from "./ItemSystem";
 import { Point2D } from "../Type/Point";
+
+export const boxPos: Point2D[] = [];
+export const itemBoxs: ItemBox[] = [];
+
+export const boxPosCal: Function = () => {
+  let x = 0;
+  let y = 0;
+  const itemMargin = 70;
+  for (let i = 0; i < 16; i++) {
+    boxPos.push([70 + itemMargin * x, 220 + itemMargin * y]);
+    x++;
+    if (x > 3) {
+      x = 0;
+      y++;
+    }
+  }
+};
 
 export class ItemBoxs {
   static totalPages: number = 1;
   items: Items;
-  itemBoxs: ItemBox[] = [];
   itemSystem: ItemSystem;
   page: number;
-  boxPos: Point2D[] = [];
   constructor(items: Items) {
     this.items = items;
     this.page = BagPage.current;
     this.itemSystem = new ItemSystem(items);
-    let x = 0;
-    let y = 0;
-    const itemMargin = 70;
-    for (let i = 0; i < 16; i++) {
-      this.boxPos.push([70 + itemMargin * x, 220 + itemMargin * y]);
-      x++;
-      if (x > 3) {
-        x = 0;
-        y++;
-      }
-    }
-
-    for (const i in playerItems) {
-      const itemBox = new ItemBox(this.boxPos[i], playerItems[i]);
-      this.itemBoxs.push(itemBox);
-      this.boxPos.push([this.boxPos[i][0] + 70, this.boxPos[i][1]]);
-    }
   }
   render(ctx: CanvasRenderingContext2D) {
-    for (const i in this.itemBoxs) {
-      this.itemBoxs[i].render(ctx);
+    for (
+      let i = (BagPage.current - 1) * 16;
+      i < (BagPage.current - 1) * 16 + 16;
+      i++
+    ) {
+      if (i < playerItems.length) itemBoxs[i].render(ctx);
     }
   }
 }

@@ -3,6 +3,7 @@ import { Point2D } from "../Type/Point";
 import { Controller } from "../../Controllers/Controller";
 import { SenceState } from "../State/SenceState";
 import { PanelState } from "../State/PanelState";
+import { itemInfoBox } from "../Panels/BagPanel";
 import Image from "./Image";
 
 export default class _Object implements Entity {
@@ -44,8 +45,10 @@ export default class _Object implements Entity {
     ctx.save();
 
     if (
-      PanelState.current === PanelState.none ||
-      this._objectName_test !== "none"
+      (itemInfoBox.current === itemInfoBox.none &&
+        PanelState.current === PanelState.none) ||
+      (this._objectName_test !== "none" &&
+        itemInfoBox.current === itemInfoBox.none)
     ) {
       if (this.isOpenPanelable) {
         if (

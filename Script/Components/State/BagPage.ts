@@ -1,3 +1,3 @@
 export class BagPage {
-  static current: number = 0;
+  static current: number = 1;
 }

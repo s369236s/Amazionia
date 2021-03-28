@@ -5,4 +5,5 @@ export class PanelState {
   static readonly bag: number = 2;
   static readonly tent: number = 3;
   static readonly fire: number = 4;
+  static readonly item: number = 100;
 }

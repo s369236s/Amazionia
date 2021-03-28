@@ -60,10 +60,13 @@ export class Items {
         "Passport",
         "./Media/Image/Items/Passport.png",
         ItemID.tool.passport,
-        "My Passport"
+        "My Passport",
+        false,
+        undefined,
+        1
       )
     );
-    this.Debug();
+    // this.Debug();
   }
   findOne(itemID: number) {
     const found = this.items.find((item) => item.ID === itemID) as Item;

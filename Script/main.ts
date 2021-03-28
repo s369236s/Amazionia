@@ -15,7 +15,7 @@ const game = new Canvas();
 //------------------------Debug--------------------
 
 const fpsCounter = new FpsCounter();
-// const itemCaller = new ItemCaller();
+const itemCaller = new ItemCaller();
 
 //------------------------Debug--------------------
 
