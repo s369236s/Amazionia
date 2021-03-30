@@ -25,7 +25,7 @@ export class Page_2 implements Page {
     this.article.push(new String(this.articlePos[4], "0, Game will be over."));
     this.article.push(new String(this.articlePos[5], "If you get some"));
     this.article.push(new String(this.articlePos[6], "illness, health value"));
-    this.article.push(new String(this.articlePos[7], "will decrese slowly"));
+    this.article.push(new String(this.articlePos[7], "will decrease slowly"));
     this.article.push(new String(this.articlePos[8], "or rapidly, depends"));
     this.article.push(new String(this.articlePos[9], "on what illness you"));
     this.article.push(new String(this.articlePos[10], "get."));

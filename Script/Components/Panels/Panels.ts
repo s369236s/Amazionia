@@ -4,16 +4,16 @@ import { BagPanel, itemInfoBox } from "./BagPanel";
 import { Items } from "../Items/Items";
 import { ItemBoxs } from "../Items/ItemBoxs";
 import { ItemInfo } from "../Items/ItemInfo";
+import { Lables } from "../Lable/Lables";
 export class Panels {
+  lables: Lables;
   private guide: GuidePanel;
-  private systemItems: Items;
   private bag: BagPanel;
   private itemBoxs: ItemBoxs;
   itemInfo: ItemInfo;
-
   constructor(items: Items) {
-    this.systemItems = items;
     this.itemInfo = new ItemInfo();
+    this.lables = new Lables();
 
     this.guide = new GuidePanel();
     this.bag = new BagPanel();
@@ -21,6 +21,7 @@ export class Panels {
   }
   render(ctx: CanvasRenderingContext2D) {
     if (PanelState.current === PanelState.guide) {
+      this.lables.render(ctx);
       this.guide.render(ctx);
     }
     if (PanelState.current === PanelState.bag) {

@@ -25,7 +25,7 @@ export class GuidePanel extends Panel {
   }
   render(ctx: CanvasRenderingContext2D) {
     super.render(ctx);
-    this.prevPageController.render(ctx);
+    if (guidePage.current !== 1) this.prevPageController.render(ctx);
     this.nextPageController.render(ctx);
     ctx.fillStyle = "black";
     ctx.font = "16px cursive__";
