@@ -1,15 +1,23 @@
-import { Entity } from "../Entitys/Entity";
 import { Point2D } from "../Type/Point";
 import { Item } from "./Item";
-import Image from "../Entitys/Image";
 import { Controller } from "../../Controllers/Controller";
 import { itemInfoBox } from "../Panels/BagPanel";
+import Image from "../Entitys/Image";
 
 export class ItemBox {
   item: Item;
   pos: Point2D;
   image: Image;
-  constructor(pos: Point2D, item: Item) {
+  isPreview: boolean;
+  amount: number;
+  constructor(
+    pos: Point2D,
+    item: Item,
+    isPreview: boolean = false,
+    amount: number = 0
+  ) {
+    this.isPreview = isPreview;
+    this.amount = amount;
     this.item = item;
     this.pos = pos;
     this.image = new Image(item.imageURL);
@@ -18,12 +26,6 @@ export class ItemBox {
     ctx.save();
     ctx.fillStyle = "rgba(0, 0, 0, 0.411)";
     ctx.fillRect(this.pos[0], this.pos[1], 50, 50);
-    ctx.fillStyle = "rgba(255,255, 255)";
-    ctx.fillText(
-      this.item.amount.toString(),
-      this.pos[0] + 45,
-      this.pos[1] + 47.5
-    );
     if (itemInfoBox.current === itemInfoBox.none) {
       if (
         Controller.mousemovePos[0] > this.pos[0] &&
@@ -47,6 +49,12 @@ export class ItemBox {
       }
     }
     ctx.drawImage(this.image.element, this.pos[0] + 5, this.pos[1] + 5, 40, 40);
+    ctx.fillStyle = "rgba(255,255, 255)";
+    ctx.fillText(
+      this.isPreview ? this.amount.toString() : this.item.amount.toString(),
+      this.pos[0] + 45,
+      this.pos[1] + 47.5
+    );
     ctx.restore();
   }
 }

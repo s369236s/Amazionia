@@ -1,71 +1,39 @@
 import { Item } from "./Item";
-import { ItemBox } from "./ItemBox";
+import { ItemList } from "./ItemList";
+
 export const ItemID = {
   food: {
     banana: 1,
     coconut: 2,
     berry: 3,
     fish: 4,
+    spider: 11,
+    snail: 12,
+  },
+  cooked_Food: {
+    fish_Cooked: 51,
+    spider_Cooked: 61,
+    snail_Cooked: 62,
+  },
+  material: {
+    stick: 101,
+    rock: 102,
   },
   tool: {
-    passport: 101,
+    passport: 151,
+    spear: 161,
+    axe: 162,
   },
 };
 
 export class Items {
   items: Item[] = [];
+  itemList: ItemList;
   constructor() {
-    this.items.push(
-      new Item(
-        "Banana",
-        "./Media/Image/Items/Banana.png",
-        ItemID.food.banana,
-        "A Banana",
-        true,
-        [0, 10, 5, 0]
-      )
-    );
-    this.items.push(
-      new Item(
-        "Coconut",
-        "./Media/Image/Items/Coconut.png",
-        ItemID.food.coconut,
-        "A Coconut",
-        true,
-        [0, 10, 20, 0]
-      )
-    );
-    this.items.push(
-      new Item(
-        "Berry",
-        "./Media/Image/Items/Berry.png",
-        ItemID.food.berry,
-        "A Berry",
-        true,
-        [0, 5, 5, 0]
-      )
-    );
-    this.items.push(
-      new Item(
-        "Fish",
-        "./Media/Image/Items/Fish.png",
-        ItemID.food.fish,
-        "A Fish",
-        true,
-        [0, 5, 5, 0]
-      )
-    );
-    this.items.push(
-      new Item(
-        "Passport",
-        "./Media/Image/Items/Passport.png",
-        ItemID.tool.passport,
-        "My Passport",
-        false,
-        undefined,
-        1
-      )
-    );
+    this.itemList = new ItemList();
+    for (const i in this.itemList.items) {
+      this.items.push(this.itemList.items[i]);
+    }
     // this.Debug();
   }
   findOne(itemID: number) {

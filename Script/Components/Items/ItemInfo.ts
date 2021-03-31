@@ -1,11 +1,9 @@
 import { Entity } from "../Entitys/Entity";
-import Image from "../Entitys/Image";
 import { Point2D } from "../Type/Point";
-import Object from "../Entitys/SenceObject";
-import { Item } from "./Item";
 import { itemInfoBox } from "../Panels/BagPanel";
 import { Controller } from "../../Controllers/Controller";
 import { deleteItem, refreshItemBoxs } from "./ItemSystem";
+import Image from "../Entitys/Image";
 
 class InfoXButton implements Entity {
   pos: Point2D;
@@ -50,8 +48,10 @@ class InfoXButton implements Entity {
 export class ItemInfo {
   image: Image;
   xButton: InfoXButton;
-  constructor() {
+  isPreview: boolean;
+  constructor(isPreview: boolean = false) {
     this.image = itemInfoBox.item.image;
+    this.isPreview = isPreview;
     this.xButton = new InfoXButton([295, 243], "./Media/Image/UI/x.png");
   }
   render(ctx: CanvasRenderingContext2D) {
@@ -60,53 +60,57 @@ export class ItemInfo {
     ctx.drawImage(itemInfoBox.item.image.element, 120, 250, 150, 150);
     ctx.fillStyle = "white";
     ctx.fillText(itemInfoBox.item.text, 198, 432);
-    ctx.fillStyle = itemInfoBox.item.consumable === true ? "green" : "grey";
-    ctx.fillRect(156, 457, 40, 20);
-    ctx.fillStyle = "red";
-    ctx.fillRect(206, 457.5, 40, 19.5);
-
-    ctx.font = "14px Poppins";
-    ctx.fillStyle = "white";
-    ctx.fillText("eat", 176, 472);
-    ctx.fillText("drop", 226, 472);
-
-    if (
-      Controller.mousemovePos[0] > 156 &&
-      Controller.mousemovePos[1] > 457 &&
-      Controller.mousemovePos[0] < 196 &&
-      Controller.mousemovePos[1] < 477 &&
-      itemInfoBox.item.consumable === true
-    ) {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+    ctx.fillText(itemInfoBox.item.name, 197, 239);
+    if (!this.isPreview) {
+      ctx.fillStyle = itemInfoBox.item.consumable === true ? "green" : "grey";
       ctx.fillRect(156, 457, 40, 20);
+      ctx.fillStyle = "red";
+      ctx.fillRect(206, 457.5, 40, 19.5);
+
+      ctx.font = "14px Poppins";
+      ctx.fillStyle = "white";
+      ctx.fillText("eat", 176, 472);
+      ctx.fillText("drop", 226, 472);
+
+      if (
+        Controller.mousemovePos[0] > 156 &&
+        Controller.mousemovePos[1] > 457 &&
+        Controller.mousemovePos[0] < 196 &&
+        Controller.mousemovePos[1] < 477 &&
+        itemInfoBox.item.consumable === true
+      ) {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+        ctx.fillRect(156, 457, 40, 20);
+      }
+      if (
+        Controller.clickPos[0] > 156 &&
+        Controller.clickPos[1] > 457 &&
+        Controller.clickPos[0] < 196 &&
+        Controller.clickPos[1] < 477 &&
+        itemInfoBox.item.consumable === true
+      ) {
+      }
+      if (
+        Controller.mousemovePos[0] > 206 &&
+        Controller.mousemovePos[1] > 457.5 &&
+        Controller.mousemovePos[0] < 246 &&
+        Controller.mousemovePos[1] < 477.5
+      ) {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
+        ctx.fillRect(206, 457.5, 40, 20);
+      }
+      if (
+        Controller.clickPos[0] > 206 &&
+        Controller.clickPos[1] > 457.5 &&
+        Controller.clickPos[0] < 246 &&
+        Controller.clickPos[1] < 477.5
+      ) {
+        deleteItem(itemInfoBox.item);
+        refreshItemBoxs();
+        itemInfoBox.current = itemInfoBox.none;
+      }
     }
-    if (
-      Controller.clickPos[0] > 156 &&
-      Controller.clickPos[1] > 457 &&
-      Controller.clickPos[0] < 196 &&
-      Controller.clickPos[1] < 477 &&
-      itemInfoBox.item.consumable === true
-    ) {
-    }
-    if (
-      Controller.mousemovePos[0] > 206 &&
-      Controller.mousemovePos[1] > 457.5 &&
-      Controller.mousemovePos[0] < 246 &&
-      Controller.mousemovePos[1] < 477.5
-    ) {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
-      ctx.fillRect(206, 457.5, 40, 20);
-    }
-    if (
-      Controller.clickPos[0] > 206 &&
-      Controller.clickPos[1] > 457.5 &&
-      Controller.clickPos[0] < 246 &&
-      Controller.clickPos[1] < 477.5
-    ) {
-      deleteItem(itemInfoBox.item);
-      refreshItemBoxs();
-      itemInfoBox.current = itemInfoBox.none;
-    }
+
     this.xButton.render(ctx);
   }
 }

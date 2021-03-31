@@ -2,7 +2,24 @@ import { Items, ItemID } from "./Items";
 import { Item } from "./Item";
 import { boxPos, boxPosCal, itemBoxs, ItemBoxs } from "./ItemBoxs";
 import { ItemBox } from "./ItemBox";
+
 export let playerItems: Item[] = [];
+
+export const findPlayerItems = (itemIDs: number[]) => {
+  for (const i in itemIDs) {
+    const found = playerItems.find((item) => item.ID === itemIDs[i]);
+    if (!found) {
+      return false;
+    }
+  }
+  return true;
+};
+
+export const findPlayerItem = (ID: number) => {
+  const found = playerItems.find((item) => item.ID === ID);
+  if (!found) return null;
+  return found;
+};
 
 export const pushItem = (pushItem: Item, amount: number = 1) => {
   const found = playerItems.findIndex((item) => item.ID === pushItem.ID);
@@ -19,13 +36,13 @@ export const pushItem = (pushItem: Item, amount: number = 1) => {
   itemBoxs.push(itemBox);
   playerItems.push(pushItem);
 };
-export const deleteItem = (deleteItem: Item) => {
+export const deleteItem = (deleteItem: Item, amount: number = 1) => {
   refreshItemBoxs();
   const found = playerItems.findIndex((item) => item.ID === deleteItem.ID);
   if (found >= 0) {
     if (playerItems[found].amount < 2) {
       playerItems.splice(found, 1);
-    } else playerItems[found].amount--;
+    } else playerItems[found].amount -= amount;
   }
   refreshItemBoxs();
 };

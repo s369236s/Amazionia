@@ -1,5 +1,4 @@
 import { Item } from "../Components/Items/Item";
-import { itemBoxs } from "../Components/Items/ItemBoxs";
 import { Items } from "../Components/Items/Items";
 import {
   playerItems,
@@ -30,7 +29,7 @@ export class ItemCaller {
     };
     this.itemBtn.onclick = () => {
       console.table(playerItems);
-      console.table(itemBoxs);
+      console.table(this.items.items);
     };
   }
 }
