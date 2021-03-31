@@ -5,6 +5,7 @@ import { SenceState } from "../State/SenceState";
 import { MapState } from "../State/MapState";
 import Image from "../Entitys/Image";
 import { Time } from "../../Controllers/Time";
+import { PanelState } from "../State/PanelState";
 
 export class MapIcon implements Entity {
   pos: Point2D;
@@ -61,46 +62,50 @@ export class MapIcon implements Entity {
   }
   render(ctx: CanvasRenderingContext2D): void {
     ctx.save();
-    if (this.isHoverAble) {
-      if (
-        Controller.mousemovePos[0] >
-          this.pos[0] - this.image.element.width / 2 &&
-        Controller.mousemovePos[1] >
-          this.pos[1] - this.image.element.height / 2 &&
-        Controller.mousemovePos[0] <
-          this.pos[0] + this.image.element.width / 2 &&
-        Controller.mousemovePos[1] < this.pos[1] + this.image.element.height / 2
-      ) {
-        ctx.globalAlpha = 0.7;
-      } else {
-        ctx.globalAlpha = 1;
-      }
-    }
-    if (this.isChangeSenceAble) {
-      if (
-        Controller.clickPos[0] > this.pos[0] - this.image.element.width / 2 &&
-        Controller.clickPos[1] > this.pos[1] - this.image.element.height / 2 &&
-        Controller.clickPos[0] < this.pos[0] + this.image.element.width / 2 &&
-        Controller.clickPos[1] < this.pos[1] + this.image.element.height / 2
-      ) {
-        let costTime: number = 0;
-        Controller.clickPos = [0, 0];
-        if (MapState.current !== this.gotoSence) {
-          costTime =
-            this.calculateCost(
-              [
-                MapState.mapPos[MapState.current][0],
-                MapState.mapPos[MapState.current][1],
-              ],
-              [
-                MapState.mapPos[this.gotoSence][0],
-                MapState.mapPos[this.gotoSence][1],
-              ]
-            ) / 2;
+    if (PanelState.current === PanelState.none) {
+      if (this.isHoverAble) {
+        if (
+          Controller.mousemovePos[0] >
+            this.pos[0] - this.image.element.width / 2 &&
+          Controller.mousemovePos[1] >
+            this.pos[1] - this.image.element.height / 2 &&
+          Controller.mousemovePos[0] <
+            this.pos[0] + this.image.element.width / 2 &&
+          Controller.mousemovePos[1] <
+            this.pos[1] + this.image.element.height / 2
+        ) {
+          ctx.globalAlpha = 0.7;
+        } else {
+          ctx.globalAlpha = 1;
         }
-        Time.minute += costTime;
-        SenceState.current = this.gotoSence;
-        MapState.current = this.gotoSence;
+      }
+      if (this.isChangeSenceAble) {
+        if (
+          Controller.clickPos[0] > this.pos[0] - this.image.element.width / 2 &&
+          Controller.clickPos[1] >
+            this.pos[1] - this.image.element.height / 2 &&
+          Controller.clickPos[0] < this.pos[0] + this.image.element.width / 2 &&
+          Controller.clickPos[1] < this.pos[1] + this.image.element.height / 2
+        ) {
+          let costTime: number = 0;
+          Controller.clickPos = [0, 0];
+          if (MapState.current !== this.gotoSence) {
+            costTime =
+              this.calculateCost(
+                [
+                  MapState.mapPos[MapState.current][0],
+                  MapState.mapPos[MapState.current][1],
+                ],
+                [
+                  MapState.mapPos[this.gotoSence][0],
+                  MapState.mapPos[this.gotoSence][1],
+                ]
+              ) / 2;
+          }
+          Time.minute += costTime;
+          SenceState.current = this.gotoSence;
+          MapState.current = this.gotoSence;
+        }
       }
     }
     ctx.drawImage(

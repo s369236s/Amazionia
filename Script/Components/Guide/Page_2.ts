@@ -38,7 +38,7 @@ export class Page_2 implements Page {
     for (let i = 5; i < 11; i++) {
       this.articlePos.push([this.articlePos[i][0], this.articlePos[i][1] + 30]);
     }
-    console.log(this.articlePos);
+    // console.log(this.articlePos);
   }
   render(ctx: CanvasRenderingContext2D): void {
     this.title.fillText(ctx);

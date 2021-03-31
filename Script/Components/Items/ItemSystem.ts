@@ -2,14 +2,12 @@ import { Items, ItemID } from "./Items";
 import { Item } from "./Item";
 import { boxPos, boxPosCal, itemBoxs, ItemBoxs } from "./ItemBoxs";
 import { ItemBox } from "./ItemBox";
-import { itemInfoBox } from "../Panels/BagPanel";
 export let playerItems: Item[] = [];
 
 export const pushItem = (pushItem: Item, amount: number = 1) => {
   const found = playerItems.findIndex((item) => item.ID === pushItem.ID);
   if (playerItems.length > 47) return;
   if (found >= 0) {
-    console.log(playerItems[found].name);
     if (playerItems[found].amount < playerItems[found].maxAmount)
       playerItems[found].amount += amount;
     return;
@@ -25,7 +23,6 @@ export const deleteItem = (deleteItem: Item) => {
   refreshItemBoxs();
   const found = playerItems.findIndex((item) => item.ID === deleteItem.ID);
   if (found >= 0) {
-    console.log(playerItems[found]);
     if (playerItems[found].amount < 2) {
       playerItems.splice(found, 1);
     } else playerItems[found].amount--;

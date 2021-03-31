@@ -36,7 +36,7 @@ export class Lable implements Entity {
       Controller.mousemovePos[1] <
         this.pos[1] + 16 + this.image.element.height / 2
     ) {
-      if (this.pos[1] < 436) this.pos[1] += 1;
+      if (this.pos[1] < 432) this.pos[1] += 1;
     } else {
       if (this.pos[1] > 425) this.pos[1] -= 1;
     }
@@ -49,7 +49,8 @@ export class Lable implements Entity {
         this.pos[0] + 14 + this.image.element.width / 2 &&
       Controller.clickPos[1] < this.pos[1] + 16 + this.image.element.height / 2
     ) {
-      guidePage.current = 2;
+      Controller.clickPos = [0, 0];
+      guidePage.current = this.pageTarget;
     }
   }
 }
