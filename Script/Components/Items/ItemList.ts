@@ -154,6 +154,28 @@ class Tool_Items implements ItemsNode {
         1
       )
     );
+    this.items.push(
+      new Item(
+        "Passport",
+        "./Media/Image/Items/axe.png",
+        ItemID.tool.axe,
+        "Axe",
+        false,
+        undefined,
+        1
+      )
+    );
+    this.items.push(
+      new Item(
+        "Passport",
+        "./Media/Image/Items/spear.png",
+        ItemID.tool.spear,
+        "Spear",
+        false,
+        undefined,
+        1
+      )
+    );
   }
 }
 

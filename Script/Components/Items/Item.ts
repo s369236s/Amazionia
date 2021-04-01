@@ -1,6 +1,6 @@
 import Image from "../Entitys/Image";
 
-type ItemAttr = [number, number, number, number]; //Health,Hunger,Thirsty,Mentality.
+export type ItemAttr = [number, number, number, number]; //Health,Hunger,Thirsty,Mentality.
 export class Item {
   imageURL: string;
   name: string;

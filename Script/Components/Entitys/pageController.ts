@@ -1,6 +1,7 @@
 import { Controller } from "../../Controllers/Controller";
 import { itemInfoBox } from "../Panels/BagPanel";
 import { FirePage } from "../Panels/FirePanel";
+import { tentPage } from "../Panels/TentPanel";
 import { BagPage } from "../State/BagPage";
 import { guidePage } from "../State/GuidePage";
 import { Point2D } from "../Type/Point";
@@ -71,7 +72,14 @@ export class PageController implements Entity {
             FirePage.current += this.amount;
           }
         }
-
+        if (this.pageControllTarget === "TENT") {
+          if (
+            tentPage.current + this.amount != 0 &&
+            tentPage.current + this.amount != tentPage.maxPage
+          ) {
+            tentPage.current += this.amount;
+          }
+        }
         Controller.clickPos = [0, 0];
       }
     }
