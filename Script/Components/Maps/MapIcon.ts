@@ -6,6 +6,7 @@ import { MapState } from "../State/MapState";
 import Image from "../Entitys/Image";
 import { Time } from "../../Controllers/Time";
 import { PanelState } from "../State/PanelState";
+import { AttrState } from "../State/AttrState";
 
 export class MapIcon implements Entity {
   pos: Point2D;
@@ -103,6 +104,13 @@ export class MapIcon implements Entity {
               ) / 2;
           }
           Time.minute += costTime;
+          this.debug();
+          const a = (AttrState.hunger -= costTime / 15);
+          const b = (AttrState.thirsty -= costTime / 10);
+          if (AttrState.hunger <= 0) AttrState.hunger = 0;
+          else AttrState.hunger = a;
+          if (AttrState.thirsty <= 0) AttrState.thirsty = 0;
+          else AttrState.thirsty = b;
           SenceState.current = this.gotoSence;
           MapState.current = this.gotoSence;
         }

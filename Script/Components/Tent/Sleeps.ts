@@ -32,28 +32,6 @@ export class Sleeps {
         items
       )
     );
-    this.cooks.push(
-      new Cook(
-        [80, 350],
-        [
-          { ID: ItemID.food.snail, amount: 1 },
-          { ID: ItemID.material.stick, amount: 2 },
-        ],
-        ItemID.cooked_Food.snail_Cooked,
-        items
-      )
-    );
-    this.cooks.push(
-      new Cook(
-        [80, 420],
-        [
-          { ID: ItemID.food.spider, amount: 1 },
-          { ID: ItemID.material.stick, amount: 3 },
-        ],
-        ItemID.cooked_Food.spider_Cooked,
-        items
-      )
-    );
   }
   render(ctx: CanvasRenderingContext2D) {
     if (tentPage.current === tentPage.sleep)

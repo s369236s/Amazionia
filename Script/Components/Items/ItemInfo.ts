@@ -4,6 +4,7 @@ import { itemInfoBox } from "../Panels/BagPanel";
 import { Controller } from "../../Controllers/Controller";
 import { deleteItem, refreshItemBoxs } from "./ItemSystem";
 import Image from "../Entitys/Image";
+import { AttrState } from "../State/AttrState";
 
 class InfoXButton implements Entity {
   pos: Point2D;
@@ -89,6 +90,10 @@ export class ItemInfo {
         Controller.clickPos[1] < 477 &&
         itemInfoBox.item.consumable === true
       ) {
+        deleteItem(itemInfoBox.item);
+        this.recoverAttr();
+        refreshItemBoxs();
+        itemInfoBox.current = itemInfoBox.none;
       }
       if (
         Controller.mousemovePos[0] > 206 &&
@@ -112,5 +117,36 @@ export class ItemInfo {
     }
 
     this.xButton.render(ctx);
+  }
+  recoverAttr() {
+    const recovery = [
+      (AttrState.health +=
+        itemInfoBox.item.attrValue[0] * AttrState.mentalityRate),
+      (AttrState.hunger +=
+        itemInfoBox.item.attrValue[1] * AttrState.mentalityRate),
+      (AttrState.thirsty +=
+        itemInfoBox.item.attrValue[2] * AttrState.mentalityRate),
+      (AttrState.mentality +=
+        itemInfoBox.item.attrValue[3] * AttrState.mentalityRate),
+    ];
+
+    if (recovery[0] >= 100) AttrState.health = 100;
+    else
+      AttrState.health +=
+        itemInfoBox.item.attrValue[0] * AttrState.mentalityRate;
+
+    if (recovery[1] >= 100) AttrState.hunger = 100;
+    else
+      AttrState.hunger +=
+        itemInfoBox.item.attrValue[1] * AttrState.mentalityRate;
+
+    if (recovery[2] >= 100) AttrState.thirsty = 100;
+    else
+      AttrState.thirsty +=
+        itemInfoBox.item.attrValue[2] * AttrState.mentalityRate;
+    if (recovery[3] >= 100) AttrState.mentality = 100;
+    else
+      AttrState.mentality +=
+        itemInfoBox.item.attrValue[3] * AttrState.mentalityRate;
   }
 }

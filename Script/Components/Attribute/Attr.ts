@@ -24,7 +24,7 @@ export class Attr implements Entity {
     this.imageHoverURL = imageHoverURL;
     this.image = new Image(imageURL);
   }
-  render(ctx: CanvasRenderingContext2D): void {
+  render(ctx: CanvasRenderingContext2D, _value: number = 0): void {
     ctx.drawImage(
       this.image.element,
       this.pos[0] - this.image.element.width / 2,
@@ -34,7 +34,7 @@ export class Attr implements Entity {
     ctx.font = "16px Poppins";
     ctx.textAlign = "center";
     ctx.fillText(
-      this.attrValue.toString(),
+      _value.toString(),
       this.image.element.width +
         this.pos[0] -
         this.image.element.width / 2 +

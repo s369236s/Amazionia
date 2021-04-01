@@ -3,6 +3,7 @@ import { Point2D } from "../Type/Point";
 import { Controller } from "../../Controllers/Controller";
 import { SenceState } from "../State/SenceState";
 import Image from "../Entitys/Image";
+import { GameState } from "../State/GameState";
 
 export class UI implements Entity {
   pos: Point2D;
@@ -12,7 +13,7 @@ export class UI implements Entity {
   isChangeSenceAble: boolean;
   gotoSence: number;
   imageURL: string;
-
+  _b: boolean;
   constructor(
     x: number,
     y: number,
@@ -20,7 +21,8 @@ export class UI implements Entity {
     isHoverAble: boolean = false,
     imageHoverURL: string = "",
     isChangeSenceAble: boolean = false,
-    gotoSence: number = 99
+    gotoSence: number = 99,
+    isGameStart: boolean = false
   ) {
     this.image = new Image(imageURL);
     this.imageURL = imageURL;
@@ -30,6 +32,7 @@ export class UI implements Entity {
     this.gotoSence = gotoSence;
     this.imageHoverURL = imageHoverURL;
     this.pos = [x, y];
+    this._b = isGameStart;
   }
 
   render(ctx: CanvasRenderingContext2D): void {
@@ -61,6 +64,9 @@ export class UI implements Entity {
         Controller.clickPos[1] < this.pos[1] + this.image.element.height / 2
       ) {
         SenceState.current = this.gotoSence;
+        if (this._b) {
+          GameState.current = GameState.inGame;
+        }
         Controller.clickPos = [0, 0];
       }
     }

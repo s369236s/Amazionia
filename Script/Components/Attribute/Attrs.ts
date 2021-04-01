@@ -1,3 +1,4 @@
+import { AttrState } from "../State/AttrState";
 import { Attr } from "./Attr";
 export class Attrs {
   health: Attr;
@@ -10,7 +11,7 @@ export class Attrs {
       30,
       60,
       "./Media/Image/UI/Attr/health.png",
-      100,
+      Math.floor(AttrState.health),
       true,
       "./Media/Image/UI/Attr/health-hover.png"
     );
@@ -18,7 +19,7 @@ export class Attrs {
       100,
       60,
       "./Media/Image/UI/Attr/hunger.png",
-      100,
+      Math.floor(AttrState.hunger),
       true,
       "./Media/Image/UI/Attr/hunger-hover.png"
     );
@@ -26,7 +27,7 @@ export class Attrs {
       170,
       60,
       "./Media/Image/UI/Attr/thirsty.png",
-      100,
+      Math.floor(AttrState.thirsty),
       true,
       "./Media/Image/UI/Attr/thirsty-hover.png"
     );
@@ -34,15 +35,15 @@ export class Attrs {
       240,
       60,
       "./Media/Image/UI/Attr/mentality.png",
-      100,
+      Math.floor(AttrState.mentality),
       true,
       "./Media/Image/UI/Attr/mentality-hover.png"
     );
   }
   render(ctx: CanvasRenderingContext2D) {
-    this.health.render(ctx);
-    this.hunger.render(ctx);
-    this.thirsty.render(ctx);
-    this.mentality.render(ctx);
+    this.health.render(ctx, Math.floor(AttrState.health));
+    this.hunger.render(ctx, Math.floor(AttrState.hunger));
+    this.thirsty.render(ctx, Math.floor(AttrState.thirsty));
+    this.mentality.render(ctx, Math.floor(AttrState.mentality));
   }
 }

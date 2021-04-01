@@ -19,7 +19,8 @@ export class Menu implements Sence {
       true,
       "./Media/Image/UI/Button/New-Game-Button-Hover.png",
       true,
-      1
+      1,
+      true
     );
   }
   render(ctx: CanvasRenderingContext2D): void {

@@ -3,6 +3,9 @@ import { Controller } from "./Controllers/Controller";
 import { FpsCounter } from "./Debug/FpsCounter";
 import { Time } from "./Controllers/Time";
 import { ItemCaller } from "./Debug/ItemCaller";
+import { StateSystem } from "./Controllers/StateSystem";
+import { GameState } from "./Components/State/GameState";
+import { AttrState } from "./Components/State/AttrState";
 const canvas = document.getElementById("gameCanvas") as HTMLCanvasElement;
 const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 CanvasDetail.width = canvas.width;
@@ -29,7 +32,10 @@ setInterval(() => {
   if (Time.minute % 1440 === 0) {
     Time.day++;
   }
-  Time.minute++;
+  if (GameState.current === GameState.inGame) {
+    StateSystem();
+    Time.minute++;
+  }
 }, 500);
 
 loop();
