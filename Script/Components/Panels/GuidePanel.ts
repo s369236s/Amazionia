@@ -8,7 +8,7 @@ export class GuidePanel extends Panel {
   nextPageController: PageController;
   pages: Pages;
   constructor() {
-    super([10, 200], "./Media/Image/UI/Guide-Panel.png", [373, 225]);
+    super([10, 200], "./Media/Image/UI/Guide-Panel.png", true, [373, 225]);
     this.prevPageController = new PageController(
       [40, 415],
       "./Media/Image/UI/GuidePrevPage.png",
@@ -26,7 +26,8 @@ export class GuidePanel extends Panel {
   render(ctx: CanvasRenderingContext2D) {
     super.render(ctx);
     if (guidePage.current !== 1) this.prevPageController.render(ctx);
-    this.nextPageController.render(ctx);
+    if (guidePage.current !== guidePage.maxPage - 1)
+      this.nextPageController.render(ctx);
     ctx.fillStyle = "black";
     ctx.font = "16px cursive__";
     ctx.fillText(`${guidePage.current.toString()}.`, 28, 230);

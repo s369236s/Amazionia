@@ -7,9 +7,9 @@ export class Sleeps {
   sleeps: Sleep[] = [];
   cooks: Cook[] = [];
   constructor(items: Items) {
-    this.sleeps.push(new Sleep([80, 210], 60, [10, 0, 0, 5]));
-    this.sleeps.push(new Sleep([80, 280], 180, [10, 0, 0, 5]));
-    this.sleeps.push(new Sleep([80, 350], 360, [10, 0, 0, 5]));
+    this.sleeps.push(new Sleep([80, 210], 60, [8, 0, 0, 5]));
+    this.sleeps.push(new Sleep([80, 280], 180, [24, 0, 0, 10]));
+    this.sleeps.push(new Sleep([80, 350], 360, [48, 0, 0, 15]));
     this.cooks.push(
       new Cook(
         [80, 210],
@@ -18,7 +18,8 @@ export class Sleeps {
           { ID: ItemID.material.rock, amount: 2 },
         ],
         ItemID.tool.spear,
-        items
+        items,
+        true
       )
     );
     this.cooks.push(
@@ -29,7 +30,8 @@ export class Sleeps {
           { ID: ItemID.material.rock, amount: 2 },
         ],
         ItemID.tool.axe,
-        items
+        items,
+        true
       )
     );
   }

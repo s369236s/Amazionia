@@ -2,6 +2,7 @@ import { Controller } from "../../Controllers/Controller";
 import { Time } from "../../Controllers/Time";
 import Image from "../Entitys/Image";
 import { ItemAttr } from "../Items/Item";
+import { AttrState } from "../State/AttrState";
 import { Point2D } from "../Type/Point";
 
 export class Sleep {
@@ -48,6 +49,8 @@ export class Sleep {
       Controller.clickPos[1] < this.pos[1] + 34.5
     ) {
       Time.minute += this.sleepTime;
+      AttrState.health += this.recoverAttr[0];
+      AttrState.mentality += this.recoverAttr[3];
       Controller.clickPos = [0, 0];
     }
   }

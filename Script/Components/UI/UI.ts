@@ -4,6 +4,7 @@ import { Controller } from "../../Controllers/Controller";
 import { SenceState } from "../State/SenceState";
 import Image from "../Entitys/Image";
 import { GameState } from "../State/GameState";
+import { PanelState } from "../State/PanelState";
 
 export class UI implements Entity {
   pos: Point2D;
@@ -14,6 +15,8 @@ export class UI implements Entity {
   gotoSence: number;
   imageURL: string;
   _b: boolean;
+  isOpenPanel: boolean;
+  panelTarget: number;
   constructor(
     x: number,
     y: number,
@@ -22,7 +25,9 @@ export class UI implements Entity {
     imageHoverURL: string = "",
     isChangeSenceAble: boolean = false,
     gotoSence: number = 99,
-    isGameStart: boolean = false
+    isGameStart: boolean = false,
+    isOpenPanel: boolean = false,
+    panelTarget: number = 99
   ) {
     this.image = new Image(imageURL);
     this.imageURL = imageURL;
@@ -33,6 +38,8 @@ export class UI implements Entity {
     this.imageHoverURL = imageHoverURL;
     this.pos = [x, y];
     this._b = isGameStart;
+    this.isOpenPanel = isOpenPanel;
+    this.panelTarget = panelTarget;
   }
 
   render(ctx: CanvasRenderingContext2D): void {
@@ -41,7 +48,7 @@ export class UI implements Entity {
       this.pos[0] - this.image.element.width / 2,
       this.pos[1] - this.image.element.height / 2
     );
-    if (this.isHoverAble) {
+    if (this.isHoverAble && PanelState.current === PanelState.none) {
       if (
         Controller.mousemovePos[0] >
           this.pos[0] - this.image.element.width / 2 &&
@@ -67,6 +74,17 @@ export class UI implements Entity {
         if (this._b) {
           GameState.current = GameState.inGame;
         }
+        Controller.clickPos = [0, 0];
+      }
+    }
+    if (this.isOpenPanel && PanelState.current === PanelState.none) {
+      if (
+        Controller.clickPos[0] > this.pos[0] - this.image.element.width / 2 &&
+        Controller.clickPos[1] > this.pos[1] - this.image.element.height / 2 &&
+        Controller.clickPos[0] < this.pos[0] + this.image.element.width / 2 &&
+        Controller.clickPos[1] < this.pos[1] + this.image.element.height / 2
+      ) {
+        PanelState.current = this.panelTarget;
         Controller.clickPos = [0, 0];
       }
     }

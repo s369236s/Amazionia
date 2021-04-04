@@ -24,11 +24,13 @@ export class Cook {
 
   itemBoxs: ItemBox[] = [];
   cookItem: Item;
+  _b: boolean;
   constructor(
     pos: Point2D,
     ingredientsList: Ingredient[],
     cookID: number,
-    items: Items
+    items: Items,
+    isTool: boolean = false
   ) {
     this.pos = pos;
     this.cookItem = items.findOne(cookID);
@@ -43,6 +45,7 @@ export class Cook {
     this.itemBoxs.push(
       new ItemBox([270, pos[1]], items.findOne(cookID), true, 1)
     );
+    this._b = isTool;
   }
   render(ctx: CanvasRenderingContext2D) {
     for (const i in this.itemBoxs) {
@@ -56,7 +59,7 @@ export class Cook {
     ctx.restore();
 
     let check = false;
-
+    let check2 = false;
     for (const i in this.ingredients_) {
       const found = findPlayerItem(this.ingredients_[i].ID);
       if (!found || found.amount < this.ingredients_[i].amount) {
@@ -65,18 +68,26 @@ export class Cook {
       if (parseInt(i) === this.ingredients.length - 1) check = true;
     }
 
-    ctx.fillStyle = check ? "red" : "grey";
+    const found = findPlayerItem(this.cookItem.ID);
+    if (found?.amount === this.cookItem.maxAmount) check2 = true;
+    ctx.fillStyle = check && !check2 ? "red" : "grey";
     ctx.fillRect(this.pos[0] + 140, this.pos[1] + 15, 40, 19.5);
     ctx.font = "14px Poppins";
     ctx.fillStyle = "white";
-    ctx.fillText("cook", this.pos[0] + 160, this.pos[1] + 30);
-
+    if (!check2)
+      ctx.fillText(
+        this._b ? "craft" : "cook",
+        this.pos[0] + 160,
+        this.pos[1] + 30
+      );
+    else ctx.fillText("full", this.pos[0] + 160, this.pos[1] + 30);
     if (
       Controller.mousemovePos[0] > this.pos[0] + 140 &&
       Controller.mousemovePos[1] > this.pos[1] + 15 &&
       Controller.mousemovePos[0] < this.pos[0] + 180 &&
       Controller.mousemovePos[1] < this.pos[1] + 34.5 &&
-      check
+      check &&
+      !check2
     ) {
       ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
       ctx.fillRect(this.pos[0] + 140, this.pos[1] + 15, 40, 19.5);
@@ -86,7 +97,8 @@ export class Cook {
       Controller.clickPos[1] > this.pos[1] + 15 &&
       Controller.clickPos[0] < this.pos[0] + 180 &&
       Controller.clickPos[1] < this.pos[1] + 34.5 &&
-      check
+      check &&
+      !check2
     ) {
       for (const i in this.ingredients) {
         deleteItem(this.ingredients[i], this.ingredients[i].amount);

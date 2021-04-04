@@ -9,6 +9,7 @@ export const ItemID = {
     fish: 4,
     spider: 11,
     snail: 12,
+    freshWater: 41,
   },
   cooked_Food: {
     fish_Cooked: 51,
@@ -23,6 +24,9 @@ export const ItemID = {
     passport: 151,
     spear: 161,
     axe: 162,
+  },
+  nothing: {
+    nothing: 999,
   },
 };
 

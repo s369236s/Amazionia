@@ -70,6 +70,17 @@ class Raw_Food_Items implements ItemsNode {
         10
       )
     );
+    this.items.push(
+      new Item(
+        "Fresh Water",
+        "./Media/Image/Items/water_skin.png",
+        ItemID.food.freshWater,
+        "the most important thing",
+        true,
+        [0, 0, 25, 0],
+        15
+      )
+    );
   }
 }
 
@@ -156,7 +167,7 @@ class Tool_Items implements ItemsNode {
     );
     this.items.push(
       new Item(
-        "Passport",
+        "Axe",
         "./Media/Image/Items/axe.png",
         ItemID.tool.axe,
         "Axe",
@@ -167,7 +178,7 @@ class Tool_Items implements ItemsNode {
     );
     this.items.push(
       new Item(
-        "Passport",
+        "Spear",
         "./Media/Image/Items/spear.png",
         ItemID.tool.spear,
         "Spear",
@@ -175,6 +186,9 @@ class Tool_Items implements ItemsNode {
         undefined,
         1
       )
+    );
+    this.items.push(
+      new Item("fail", "", ItemID.nothing.nothing, "", false, undefined, 1)
     );
   }
 }

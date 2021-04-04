@@ -6,11 +6,14 @@ import {
   refreshItemBoxs,
 } from "../Components/Items/ItemSystem";
 
+export let attrIsLock = false;
+
 export class ItemCaller {
   items: Items;
   btn: HTMLButtonElement;
   itemBtn: HTMLButtonElement;
   ID: HTMLInputElement;
+  lockBtn: HTMLButtonElement;
   amount: HTMLInputElement;
   constructor() {
     this.items = new Items();
@@ -18,6 +21,7 @@ export class ItemCaller {
     this.ID = document.getElementById("itemId") as HTMLInputElement;
     this.itemBtn = document.getElementById("itembtn") as HTMLButtonElement;
     this.amount = document.getElementById("itemAmount") as HTMLInputElement;
+    this.lockBtn = document.getElementById("lockAttr") as HTMLButtonElement;
     this.btn.onclick = () => {
       const inputID = parseInt(this.ID.value);
       const amount = parseInt(this.amount.value);
@@ -30,6 +34,9 @@ export class ItemCaller {
     this.itemBtn.onclick = () => {
       console.table(playerItems);
       console.table(this.items.items);
+    };
+    this.lockBtn.onclick = () => {
+      attrIsLock = !attrIsLock;
     };
   }
 }

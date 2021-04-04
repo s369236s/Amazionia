@@ -56,6 +56,7 @@ export class ItemInfo {
     this.xButton = new InfoXButton([295, 243], "./Media/Image/UI/x.png");
   }
   render(ctx: CanvasRenderingContext2D) {
+    ctx.save();
     ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
     ctx.fillRect(85, 220, 230, 270);
     ctx.drawImage(itemInfoBox.item.image.element, 120, 250, 150, 150);
@@ -115,18 +116,24 @@ export class ItemInfo {
         itemInfoBox.current = itemInfoBox.none;
       }
     }
-
+    ctx.restore();
     this.xButton.render(ctx);
   }
   recoverAttr() {
+    const newAttrState = [
+      AttrState.health,
+      AttrState.hunger,
+      AttrState.thirsty,
+      AttrState.mentality,
+    ];
     const recovery = [
-      (AttrState.health +=
+      (newAttrState[0] +=
         itemInfoBox.item.attrValue[0] * AttrState.mentalityRate),
-      (AttrState.hunger +=
+      (newAttrState[1] +=
         itemInfoBox.item.attrValue[1] * AttrState.mentalityRate),
-      (AttrState.thirsty +=
+      (newAttrState[2] +=
         itemInfoBox.item.attrValue[2] * AttrState.mentalityRate),
-      (AttrState.mentality +=
+      (newAttrState[3] +=
         itemInfoBox.item.attrValue[3] * AttrState.mentalityRate),
     ];
 

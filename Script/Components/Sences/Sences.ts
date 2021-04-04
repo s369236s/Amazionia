@@ -10,8 +10,11 @@ import { Jungle } from "./Jungle";
 import { River } from "./River";
 import { Panels } from "../Panels/Panels";
 import { Items } from "../Items/Items";
+import { itemPop, Pop } from "../Items/itemPop";
+import { GameState } from "../State/GameState";
+import { UI } from "../UI/UI";
 import Object from "../Entitys/SenceObject";
-import { ItemBoxs } from "../Items/ItemBoxs";
+import { PanelState } from "../State/PanelState";
 
 export class Sences {
   private attrs: Attrs;
@@ -25,7 +28,10 @@ export class Sences {
   private river: River;
   private jungle: Jungle;
   private waterfall: Waterfall;
+  private pop: Pop;
+  private quickBag: UI;
   constructor() {
+    this.pop = new Pop();
     this.attrs = new Attrs();
     this.timer = new Timer();
     this.guide = new Guide();
@@ -34,9 +40,21 @@ export class Sences {
     this.menu = new Menu();
     this.home = new Home();
     this.map = new Map();
-    this.river = new River();
-    this.jungle = new Jungle();
-    this.waterfall = new Waterfall();
+    this.river = new River(this.items);
+    this.jungle = new Jungle(this.items);
+    this.waterfall = new Waterfall(this.items);
+    this.quickBag = new UI(
+      30,
+      150,
+      "./Media/Image/UI/backpack.png",
+      true,
+      "./Media/Image/UI/backpack_hover.png",
+      false,
+      undefined,
+      false,
+      true,
+      PanelState.bag
+    );
   }
   render(ctx: CanvasRenderingContext2D) {
     if (SenceState.current === SenceState.menu) {
@@ -62,6 +80,10 @@ export class Sences {
       this.timer.render(ctx);
       this.guide.render(ctx);
       this.panels.render(ctx);
+      this.quickBag.render(ctx);
+    }
+    if (itemPop.isPop && GameState.current === GameState.inGame) {
+      this.pop.render(ctx);
     }
   }
 }
