@@ -7,7 +7,7 @@ export class Lables {
   constructor() {
     this.attrLable = new Lable(
       [43, 425],
-      "./Media/Image/UI/Attr/health-hover.png",
+      "./Media/Image/UI/Attr/Health-Hover.png",
       2
     );
     this.mapLable = new Lable([78, 425], "./Media/Image/MapIcon/Home.png", 6);
