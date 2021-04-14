@@ -21,11 +21,6 @@ const fpsCounter = new FpsCounter();
 const itemCaller = new ItemCaller();
 
 //------------------------Debug--------------------
-const loader = document.querySelector(".loader-container") as HTMLDivElement;
-
-window.onload = () => {
-  loader.remove();
-};
 
 const loop = () => {
   game.render(ctx);

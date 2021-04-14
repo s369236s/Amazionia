@@ -28,20 +28,10 @@
         display: block;
         margin-top: 40px;
         align-self: center;
-        display: none;
-      }
-      body > div {
-        display: none;
-      }
-      body,
-      html {
-        height: 100%;
       }
       body {
-        color: black;
-        background-color: #fffaf5;
-        margin: 0;
-        padding: 0;
+        display: flex;
+        background-color: rgb(59, 59, 59);
       }
       ._ {
         color: rgba(0, 0, 0, 0.411);
@@ -96,9 +86,7 @@
       }
     </style>
   </head>
-  <div class="loader-container">
-    <div class="loader">Loading...</div>
-  </div>
+
   <body>
     <canvas id="gameCanvas" width="400px" height="600px"></canvas>
     <div style="margin-top: 50px">
