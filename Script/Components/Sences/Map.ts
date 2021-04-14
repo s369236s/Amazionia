@@ -11,7 +11,7 @@ export class Map implements Sence {
   private mapIcons: MapIcons;
   private redDot: RedDot;
   constructor() {
-    this.background = new Background(0, 0, "./Media/Image/Backgrounds/map.png");
+    this.background = new Background(0, 0, "./Media/Image/Backgrounds/Map.png");
     this.mapIcons = new MapIcons();
     this.redDot = new RedDot(100, 100);
   }

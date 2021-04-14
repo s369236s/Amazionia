@@ -14,7 +14,7 @@ export class Page_4 implements Page {
     this.thirstyIcon = new UI(
       289,
       373,
-      "./Media/Image/UI/Attr/thirsty-hover.png",
+      "./Media/Image/UI/Attr/Thirsty-Hover.png",
       false
     );
 

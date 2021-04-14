@@ -10,7 +10,7 @@ export class Over implements Sence {
     this.background = new Background(
       0,
       0,
-      "./Media/Image/Backgrounds/menu.png"
+      "./Media/Image/Backgrounds/Menu.png"
     );
     this.stringPos.push([CanvasDetail.width / 2, CanvasDetail.height / 2]);
     this.stringPos.push([CanvasDetail.width / 2, CanvasDetail.height / 2 + 30]);

@@ -14,9 +14,9 @@ export class Page_3 implements Page {
     this.hungerIcon = new UI(
       112,
       262,
-      "./Media/Image/UI/Attr/hunger.png",
+      "./Media/Image/UI/Attr/Hunger.png",
       true,
-      "./Media/Image/UI/Attr/hunger-hover.png"
+      "./Media/Image/UI/Attr/Hunger-Hover.png"
     );
 
     this.article.push(new String(this.articlePos[2], "Starving can make"));

@@ -11,7 +11,7 @@ export class River implements Sence {
     this.background = new Background(
       0,
       0,
-      "./Media/Image/Backgrounds/river.png"
+      "./Media/Image/Backgrounds/River.png"
     );
     this.leaveArrow = new Object(
       70,

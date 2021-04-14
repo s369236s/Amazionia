@@ -51,7 +51,7 @@ class Raw_Food_Items implements ItemsNode {
     this.items.push(
       new Item(
         "Spider",
-        "./Media/Image/Items/spider.png",
+        "./Media/Image/Items/Spider.png",
         ItemID.food.spider,
         "Look gross...",
         true,
@@ -62,7 +62,7 @@ class Raw_Food_Items implements ItemsNode {
     this.items.push(
       new Item(
         "Snail",
-        "./Media/Image/Items/snail.png",
+        "./Media/Image/Items/Snail.png",
         ItemID.food.snail,
         "Feel sticky",
         true,
@@ -73,7 +73,7 @@ class Raw_Food_Items implements ItemsNode {
     this.items.push(
       new Item(
         "Fresh Water",
-        "./Media/Image/Items/water_skin.png",
+        "./Media/Image/Items/Water_Skin.png",
         ItemID.food.freshWater,
         "the most important thing",
         true,
@@ -90,7 +90,7 @@ class Cooked_Food_Items implements ItemsNode {
     this.items.push(
       new Item(
         "Cooked Fish",
-        "./Media/Image/Items/fish-cooked.png",
+        "./Media/Image/Items/Fish-Cooked.png",
         ItemID.cooked_Food.fish_Cooked,
         "Protein rich...",
         true,
@@ -101,7 +101,7 @@ class Cooked_Food_Items implements ItemsNode {
     this.items.push(
       new Item(
         "Cooked Spider",
-        "./Media/Image/Items/spider-cooked.png",
+        "./Media/Image/Items/Spider-Cooked.png",
         ItemID.cooked_Food.spider_Cooked,
         "Protein rich...",
         true,
@@ -129,7 +129,7 @@ class Materail_Items implements ItemsNode {
     this.items.push(
       new Item(
         "Stick",
-        "./Media/Image/Items/stick.png",
+        "./Media/Image/Items/Stick.png",
         ItemID.material.stick,
         "Plenty in forest",
         false,
@@ -140,7 +140,7 @@ class Materail_Items implements ItemsNode {
     this.items.push(
       new Item(
         "Rock",
-        "./Media/Image/Items/rock.png",
+        "./Media/Image/Items/Rock.png",
         ItemID.material.rock,
         "Plenty in forest",
         false,
@@ -168,7 +168,7 @@ class Tool_Items implements ItemsNode {
     this.items.push(
       new Item(
         "Axe",
-        "./Media/Image/Items/axe.png",
+        "./Media/Image/Items/Axe.png",
         ItemID.tool.axe,
         "Axe",
         false,
@@ -179,7 +179,7 @@ class Tool_Items implements ItemsNode {
     this.items.push(
       new Item(
         "Spear",
-        "./Media/Image/Items/spear.png",
+        "./Media/Image/Items/Spear.png",
         ItemID.tool.spear,
         "Spear",
         false,

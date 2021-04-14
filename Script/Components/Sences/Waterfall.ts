@@ -10,7 +10,7 @@ export class Waterfall implements Sence {
     this.background = new Background(
       0,
       0,
-      "./Media/Image/Backgrounds/waterfall.png"
+      "./Media/Image/Backgrounds/Waterfall.png"
     );
     this.leaveArrow = new Object(
       70,

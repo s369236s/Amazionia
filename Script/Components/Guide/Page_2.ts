@@ -13,9 +13,9 @@ export class Page_2 implements Page {
     this.healthIcon = new UI(
       112,
       262,
-      "./Media/Image/UI/Attr/health.png",
+      "./Media/Image/UI/Attr/Health.png",
       true,
-      "./Media/Image/UI/Attr/health-hover.png"
+      "./Media/Image/UI/Attr/Health-Hover.png"
     );
     this.article.push(
       new String(this.articlePos[1], "Most important", ["16px", "red"])

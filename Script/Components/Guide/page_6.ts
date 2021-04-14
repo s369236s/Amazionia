@@ -20,10 +20,10 @@ export class Page_6 implements Page {
     this.article.push(
       new String(this.articlePos[8], "JUNGLE  FALL", ["20px", "red"])
     );
-    this.mapIcon.push(new Image("./Media/Image/MapIcon/home.png"));
-    this.mapIcon.push(new Image("./Media/Image/MapIcon/river.png"));
-    this.mapIcon.push(new Image("./Media/Image/MapIcon/jungle.png"));
-    this.mapIcon.push(new Image("./Media/Image/MapIcon/waterfall.png"));
+    this.mapIcon.push(new Image("./Media/Image/MapIcon/Home.png"));
+    this.mapIcon.push(new Image("./Media/Image/MapIcon/River.png"));
+    this.mapIcon.push(new Image("./Media/Image/MapIcon/Jungle.png"));
+    this.mapIcon.push(new Image("./Media/Image/MapIcon/Waterfall.png"));
   }
 
   calArticlePos() {

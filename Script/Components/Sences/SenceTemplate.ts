@@ -7,7 +7,7 @@ export class SenceTemplate implements Sence {
     this.background = new Background(
       0,
       0,
-      "./Media/Image/Backgrounds/menu.png"
+      "./Media/Image/Backgrounds/Menu.png"
     );
   }
   render(ctx: CanvasRenderingContext2D): void {

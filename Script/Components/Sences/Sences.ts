@@ -46,9 +46,9 @@ export class Sences {
     this.quickBag = new UI(
       30,
       150,
-      "./Media/Image/UI/backpack.png",
+      "./Media/Image/UI/Backpack.png",
       true,
-      "./Media/Image/UI/backpack_hover.png",
+      "./Media/Image/UI/Backpack_Hover.png",
       false,
       undefined,
       false,

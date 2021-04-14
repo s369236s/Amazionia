@@ -14,7 +14,7 @@ export class Page_5 implements Page {
     this.mentalIcon = new UI(
       289,
       373,
-      "./Media/Image/UI/Attr/mentality-hover.png",
+      "./Media/Image/UI/Attr/Mentality-Hover.png",
       false
     );
 

@@ -10,10 +10,10 @@ export class Lables {
       "./Media/Image/UI/Attr/health-hover.png",
       2
     );
-    this.mapLable = new Lable([78, 425], "./Media/Image/MapIcon/home.png", 6);
+    this.mapLable = new Lable([78, 425], "./Media/Image/MapIcon/Home.png", 6);
     this.missonLable = new Lable(
       [113, 425],
-      "./Media/Image/UI/exclamation_mark.png",
+      "./Media/Image/UI/Exclamation_Mark.png",
       7
     );
   }

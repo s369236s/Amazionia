@@ -12,7 +12,7 @@ export class MapIcons {
     this._menu = new MapIcon([0, 0], "", undefined, undefined, undefined, "");
     this.home = new MapIcon(
       [172, 438],
-      "./Media/Image/MapIcon/home.png",
+      "./Media/Image/MapIcon/Home.png",
       true,
       true,
       SenceState.home,
@@ -21,7 +21,7 @@ export class MapIcons {
     this._map = new MapIcon([0, 0], "");
     this.river = new MapIcon(
       [128, 553],
-      "./Media/Image/MapIcon/river.png",
+      "./Media/Image/MapIcon/River.png",
       true,
       true,
       SenceState.river,
@@ -29,7 +29,7 @@ export class MapIcons {
     );
     this.jungle = new MapIcon(
       [102, 245],
-      "./Media/Image/MapIcon/jungle.png",
+      "./Media/Image/MapIcon/Jungle.png",
       true,
       true,
       SenceState.jungle,
@@ -37,7 +37,7 @@ export class MapIcons {
     );
     this.waterfall = new MapIcon(
       [322, 194],
-      "./Media/Image/MapIcon/waterfall.png",
+      "./Media/Image/MapIcon/Waterfall.png",
       true,
       true,
       SenceState.waterfall,

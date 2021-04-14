@@ -10,34 +10,34 @@ export class Attrs {
     this.health = new Attr(
       30,
       60,
-      "./Media/Image/UI/Attr/health.png",
+      "./Media/Image/UI/Attr/Health.png",
       Math.floor(AttrState.health),
       true,
-      "./Media/Image/UI/Attr/health-hover.png"
+      "./Media/Image/UI/Attr/Health-Hover.png"
     );
     this.hunger = new Attr(
       100,
       60,
-      "./Media/Image/UI/Attr/hunger.png",
+      "./Media/Image/UI/Attr/Hunger.png",
       Math.floor(AttrState.hunger),
       true,
-      "./Media/Image/UI/Attr/hunger-hover.png"
+      "./Media/Image/UI/Attr/Hunger-Hover.png"
     );
     this.thirsty = new Attr(
       170,
       60,
-      "./Media/Image/UI/Attr/thirsty.png",
+      "./Media/Image/UI/Attr/Thirsty.png",
       Math.floor(AttrState.thirsty),
       true,
-      "./Media/Image/UI/Attr/thirsty-hover.png"
+      "./Media/Image/UI/Attr/Thirsty-Hover.png"
     );
     this.mentality = new Attr(
       240,
       60,
-      "./Media/Image/UI/Attr/mentality.png",
+      "./Media/Image/UI/Attr/Mentality.png",
       Math.floor(AttrState.mentality),
       true,
-      "./Media/Image/UI/Attr/mentality-hover.png"
+      "./Media/Image/UI/Attr/Mentality-Hover.png"
     );
   }
   render(ctx: CanvasRenderingContext2D) {

@@ -14,12 +14,12 @@ export class Home implements Sence {
     this.background = new Background(
       0,
       0,
-      "./Media/Image/Backgrounds/home.png"
+      "./Media/Image/Backgrounds/Home.png"
     );
     this.tent = new Object(
       80,
       465,
-      "./Media/Image/SenceObjects/tent.png",
+      "./Media/Image/SenceObjects/Tent.png",
       true,
       undefined,
       true,
@@ -28,7 +28,7 @@ export class Home implements Sence {
     this.fire = new Object(
       190,
       540,
-      "./Media/Image/SenceObjects/fire.png",
+      "./Media/Image/SenceObjects/Fire.png",
       true,
       undefined,
       true,
@@ -37,7 +37,7 @@ export class Home implements Sence {
     this.bag = new Object(
       350,
       445,
-      "./Media/Image/SenceObjects/bag.png",
+      "./Media/Image/SenceObjects/Bag.png",
       true,
       undefined,
       true,

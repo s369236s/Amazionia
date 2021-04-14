@@ -10,7 +10,7 @@ export class Menu implements Sence {
     this.background = new Background(
       0,
       0,
-      "./Media/Image/Backgrounds/menu.png"
+      "./Media/Image/Backgrounds/Menu.png"
     );
     this.startButton = new UI(
       CanvasDetail.width / 2,
