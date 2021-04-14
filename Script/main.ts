@@ -21,9 +21,10 @@ const fpsCounter = new FpsCounter();
 const itemCaller = new ItemCaller();
 
 //------------------------Debug--------------------
+const loader = document.querySelector(".loader-container") as HTMLDivElement;
 
 window.onload = () => {
-  console.log(123);
+  loader.remove();
 };
 
 const loop = () => {
