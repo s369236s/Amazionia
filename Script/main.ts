@@ -22,6 +22,10 @@ const itemCaller = new ItemCaller();
 
 //------------------------Debug--------------------
 
+window.onload = () => {
+  console.log(123);
+};
+
 const loop = () => {
   game.render(ctx);
   fpsCounter.render(ctx);
