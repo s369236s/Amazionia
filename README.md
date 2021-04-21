@@ -4,4 +4,4 @@
 
 <h2>如何遊玩</h2>
 
-[a link](https://s369236s.github.io/Amazionia/)
+[線上遊玩](https://s369236s.github.io/Amazionia/)
