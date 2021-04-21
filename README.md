@@ -5,5 +5,5 @@
 <h2>如何遊玩</h2>
 
 ```
-連結 https://s369236s.github.io/Amazionia/
+[a link](https://s369236s.github.io/Amazionia/)
 ```
