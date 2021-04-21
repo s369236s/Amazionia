@@ -4,6 +4,4 @@
 
 <h2>如何遊玩</h2>
 
-```
 [a link](https://s369236s.github.io/Amazionia/)
-```
