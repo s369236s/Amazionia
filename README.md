@@ -5,7 +5,5 @@
 <h2>如何遊玩</h2>
 
 ```
-$ git clone https://github.com/s369236s/Amazionia.git
-
-開啟index.html
+連結 https://s369236s.github.io/Amazionia/
 ```
